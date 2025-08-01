@@ -1,0 +1,15 @@
+services:
+  example-frontend:
+    image: example-frontend
+    build: 
+      context: ../material-applications/example-frontend
+      dockerfile: Dockerfile
+    ports:
+      - 5001:5000
+  example-backend:
+    image: example-backend
+    build: 
+      context: ../material-applications/example-backend
+      dockerfile: Dockerfile
+    ports:
+      - 8080:8080

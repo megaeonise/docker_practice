@@ -1,0 +1,20 @@
+services:
+  example-frontend:
+    image: example-frontend
+    build: 
+      context: ../material-applications/example-frontend
+      dockerfile: Dockerfile
+    ports:
+      - 5001:5000
+  example-backend:
+    image: example-backend
+    build: 
+      context: ../material-applications/example-backend
+      dockerfile: Dockerfile
+    ports:
+      - 8080:8080
+    environment:
+      - REDIS_HOST=redis
+  redis:
+    image: redis:8.0.3-alpine3.21
+    restart: always
