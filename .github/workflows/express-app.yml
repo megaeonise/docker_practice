@@ -30,6 +30,7 @@ jobs:
           tags: ${{ secrets.DOCKER_USERNAME }}/material-express-app:latest
       - name: Deploy to fly.io
         uses: superfly/flyctl-actions/setup-flyctl@master
+      - run: cd express-app
       - run: flyctl deploy --remote-only
         env:
           FLY_API_TOKEN: ${{ secrets.FLY_API_TOKEN }}
