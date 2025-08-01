@@ -9,7 +9,7 @@ services:
   express:
     image: material-express-app
     build: 
-      context: ../material-applications/express-app
+      context: ../express-app
       dockerfile: Dockerfile
     ports:
       - 8080:8080
