@@ -8,7 +8,9 @@ on:
 jobs:
   build: # name of the job
     runs-on: ubuntu-latest
-
+    defaults:
+      run:
+        working-directory: ./express-app
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
@@ -30,7 +32,6 @@ jobs:
           tags: ${{ secrets.DOCKER_USERNAME }}/material-express-app:latest
       - name: Deploy to fly.io
         uses: superfly/flyctl-actions/setup-flyctl@master
-      - run: cd express-app
       - run: flyctl deploy --remote-only
         env:
           FLY_API_TOKEN: ${{ secrets.FLY_API_TOKEN }}
