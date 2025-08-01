@@ -7,7 +7,7 @@ services:
       - /var/run/docker.sock:/var/run/docker.sock
     container_name: watchtower
   express:
-    image: material-express-app
+    image: megaeonise/material-express-app
     build: 
       context: ../express-app
       dockerfile: Dockerfile
