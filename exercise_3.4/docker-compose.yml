@@ -1,0 +1,9 @@
+services:
+  builder:
+    image: builder
+    environment:
+      - DOCKER_USER=${DOCKER_USER}
+      - DOCKER_PWD=${DOCKER_PWD}
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+    command: ${ARG1} ${ARG2} ${DOCKER_USER} ${DOCKER_PWD}
